@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+
+<head>
+    <title>Credit 5</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0" />
+    <!-- Bootstrap -->
+    <link href="frameworks/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/third.css" rel="stylesheet" />
+    <!-- jQuery – required for Bootstrap's JavaScript plugins) -->
+    <script src="frameworks/js/jquery.min.js"></script>
+    <!-- All Bootstrap plug-ins file -->
+    <script src="frameworks/js/bootstrap.min.js"></script>
+    <!-- Basic AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.min.js"></script>
+    <script src="frameworks/js/angular.min.js"></script>
+    <!-- High chart -->
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="task1.js"></script>
+
+</head>
+
+<body data-ng-controller="myCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 firstTag">
+                <div class="row">
+                    <div class="col-md-4">
+                        Temparature Now: {{temparature}} <br>
+                        Time: {{hourMin}}
+                    </div>
+                    <div class="col-md-4">
+                        <b>{{location}}</b><br>
+                        Weather status: {{WeatherText}}
+                    </div>
+                    <div class="col-md-4">
+                        Today's Date: {{today}} <br>
+                        <div data-ng-if="WeatherIcon<10"><img src="https://developer.accuweather.com/sites/default/files/0{{WeatherIcon}}-s.png" alt="icon" /></div>
+                        <div data-ng-if="WeatherIcon>9"><img src="https://developer.accuweather.com/sites/default/files/{{WeatherIcon}}-s.png" alt="icon" /></div>
+                    </div>
+                </div>
+            </div>
+            <div id="myfirstchart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table thead-dark">
+                            <caption>5-Day weather forecast</caption>
+                            <tr style="background-color: skyblue">
+                                <th id="code">Date</th>
+                                <th id="desc">Day time</th>
+                                <th id="credit">Night time</th>
+                                <th id="type">Max Temp. (F)</th>
+                                <th id="type">Min Temp. (F)</th>
+                            </tr>
+                            <tr data-ng-repeat="day in daily">
+                                <td headers="code">{{day.Date | date:"mediumDate"}}</td>
+                                <td headers="desc">{{day.Day.IconPhrase}}</td>
+                                <td headers="desc">{{day.Night.IconPhrase}}</td>
+                                <td headers="credit">{{day.Temperature.Minimum.Value}}</td>
+                                <td headers="type">{{day.Temperature.Maximum.Value}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="xxx" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <table class="table thead-dark">
+            <caption>Weather of top 5 cities around the world</caption>
+            <tr style="background-color: indianred">
+                <th id="code">City</th>
+                <th id="desc">Time</th>
+                <th id="credit">Temperature Now</th>
+                <th id="type">Status</th>
+            </tr>
+            <tr data-ng-repeat="city in cities | limitTo: weatherPerPage">
+                <td headers="code">{{city.EnglishName}}</td>
+                <td headers="desc">{{city.LocalObservationDateTime | date:"mediumDate"}}</td>
+                <td headers="desc">{{city.Temperature.Metric.Value}}</td>
+                <td headers="credit">
+                    <div data-ng-if="city.WeatherIcon<10"><img src="https://developer.accuweather.com/sites/default/files/0{{city.WeatherIcon}}-s.png" alt="icon" /></div>
+                    <div data-ng-if="city.WeatherIcon>9"><img src="https://developer.accuweather.com/sites/default/files/{{city.WeatherIcon}}-s.png" alt="icon" /></div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

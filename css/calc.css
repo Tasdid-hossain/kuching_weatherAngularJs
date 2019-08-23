@@ -1,0 +1,30 @@
+.col-md-12.disp{
+	border: 3px solid green;
+	text-align: right;
+	background-color: lightblue;
+	border-radius:10px; 
+}
+
+
+.col-md-3.equal{
+	border: 2px solid black;
+	text-align: right;
+	background-color: lime;
+	border-radius:10px; 
+	height: 68px;
+}
+
+.col-md-8.button,.col-md-4.button,.col-md-3{
+	border: 2px solid black;
+	text-align: right;
+	background-color: gray;
+	border-radius:10px; 
+}
+
+
+
+.container{
+    grid-gap: 20px;
+    display: grid;
+	width:800px;
+}

@@ -1,0 +1,17 @@
+
+
+.col-md-12.firstTag{
+	font-size:16px;
+	border-top:1px solid #000;
+	line-height:70px;
+	background: #dee1e5;
+	text-align:center;
+}
+
+body{
+  background: black;
+}
+
+.table{
+    color: white
+}

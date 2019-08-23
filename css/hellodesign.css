@@ -1,0 +1,33 @@
+.container-fluid{
+	display: grid;
+    width: 1024px;
+    margin: 0 auto;
+    grid-gap: 20px; 
+}
+
+.col-md-12{
+	border: 1px solid;
+}
+
+.col-md-4.secO{
+	height:98px;
+}
+
+.col-md-4{
+	border: 1px solid;
+}
+
+.col-md-3{
+	border: 1px solid;
+}
+
+.col-md-3.sec{
+	border: 1px solid;
+	height:130px;
+}
+
+
+
+.col-md-8{
+	border: 1px solid;
+}
